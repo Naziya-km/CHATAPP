@@ -1,3 +1,4 @@
+import 'package:chatapp/chatd.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -9,8 +10,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  var inputcontroller = TextEditingController();
-  var input = TextEditingController();
+  var namecontroller = TextEditingController();
+
   String data = "no inputs";
   @override
   Widget build(BuildContext context) {
@@ -18,16 +19,17 @@ class _InputPageState extends State<InputPage> {
       body: Column(
         children: [
           TextField(
-            controller: inputcontroller,
-          ),
-          TextField(
-            controller: input,
+            controller: namecontroller,
           ),
           ElevatedButton(
               onPressed: () {
-                FirebaseFirestore.instance
-                    .collection('user')
-                    .add({'name': inputcontroller.text, 'age': input.text});
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return design(
+                      name: "sam",
+                    );
+                  },
+                ));
               },
               child: Text("press")),
           Text(data)

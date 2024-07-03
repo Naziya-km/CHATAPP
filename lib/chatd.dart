@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class design extends StatefulWidget {
+  String name;
+  design({required this.name});
   @override
   State<design> createState() => _designState();
 }
@@ -18,7 +20,7 @@ class _designState extends State<design> {
       backgroundColor: Colors.green,
       appBar: AppBar(
         centerTitle: true,
-        title: Text("CHATAPP"),
+        title: Text(widget.name),
         leading: IconButton(
           onPressed: () {},
           icon: Icon(Icons.home),
